@@ -5,13 +5,29 @@
 #include "functions.h"
 
 //compute a*b mod p safely
-unsigned int modprod(unsigned int a, unsigned int b, unsigned int p) {
+unsigned int modProd(unsigned int a, unsigned int b, unsigned int p) {
   /* Q1.2: Complete this function */
+  unsigned int za = a;
+  unsigned int ab = 0;
+  while (b>0) {
+    if ((b%2)==1) ab = (ab + za) % p;
+    za = (2*za)%p; 
+    b = b/2;
+  }
+  return ab;
 }
 
 //compute a^b mod p safely
 unsigned int modExp(unsigned int a, unsigned int b, unsigned int p) {
   /* Q1.3: Complete this function */
+  unsigned int z = a;
+  unsigned int aExpb = 1;
+  while (b>0) {
+    if ((b%2)==1) aExpb = modProd(aExpb,z,p);
+    z=modProd(z,z,p);
+    b = b/2;
+  }
+  return aExpb;
 }
 
 //returns either 0 or 1 randomly
@@ -67,7 +83,7 @@ unsigned int isProbablyPrime(unsigned int N) {
   unsigned int r,d;
 
   for (unsigned int n=0;n<NsmallPrimes;n++) {
-  
+    unsigned int x = modExp(a,d,N);
   }
   return 1; //true
 }
