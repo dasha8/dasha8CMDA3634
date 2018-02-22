@@ -9,10 +9,10 @@ INCLUDES = $(wildcard $(INCLUDEDIR)/*h)
 OBJECTS = $(subst $(SOURCEDIR)/,$(OBJDIR)/,$(SOURCE:.c=.o))
 
 DEPS = $(INCLUDES) 
-FLAGS = -I$(INCLUDEDIR) -O3 -g -mpilog
+FLAGS = -I$(INCLUDEDIR) -O3 -g
 LIBS  = -lm
 
-CC =  mpecc 
+CC =  gcc
 
 $(OBJDIR)/%.o:$(SOURCEDIR)/%.c $(DEPS)
 	$(CC) $(FLAGS) -o $@ $(LIBS) -c $<
