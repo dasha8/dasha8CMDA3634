@@ -80,10 +80,25 @@ unsigned int isProbablyPrime(unsigned int N) {
 
   //if we're testing a large number switch to Miller-Rabin primality test
   /* Q2.1: Complete this part of the isProbablyPrime function using the Miller-Rabin pseudo-code */
-  unsigned int r,d;
+  unsigned int r = 0, d = 1;
+  unsigned int temp = N-1;
+    while (d==1) {
+      if ((temp-1)%2 == 0) r++;
+      else d = (temp-1)%2;
+
+      temp = temp / 2;
+    }
 
   for (unsigned int n=0;n<NsmallPrimes;n++) {
-    unsigned int x = modExp(a,d,N);
+    unsigned int x = modExp(r,d,N);
+    if ((x == 1) || (x == N-1)) continue;
+     
+    for (int i=1; i<r; i++) {
+      x = modProd(x,x,N);
+      if (x==1) return 0;
+      if (x==N-1) break;
+    }
+    return 0;
   }
   return 1; //true
 }
@@ -91,4 +106,16 @@ unsigned int isProbablyPrime(unsigned int N) {
 //Finds a generator of Z_p using the assumption that p=2*q+1
 unsigned int findGenerator(unsigned int p) {
   /* Q3.3: complete this function and use the fact that p=2*q+1 to quickly find a generator */
+
+  unsigned int q = (p-1)/2;
+  unsigned int isGen = 0, g = 2;
+
+  while (isGen == 0 && g < p) {
+    isGen = 1;
+    if ((int)pow(g,2)%p == 1) isGen = 0;
+    if ((int)pow(g,q)%p == 1) isGen = 0;
+    g++;
+  }
+
+  return g-1;
 }
