@@ -47,8 +47,7 @@ unsigned int randXbitInt(unsigned int n) {
 //tests for primality and return 1 if N is probably prime and 0 if N is composite
 unsigned int isProbablyPrime(unsigned int N) {
 
-  if (N%2==2) return 0; //not interested in even numbers (including 2)
-
+  if (N%2==0) return 0; //not interested in even numbers (including 2)
   unsigned int NsmallPrimes = 168;
   unsigned int smallPrimeList[168] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 
                                 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 
@@ -80,17 +79,17 @@ unsigned int isProbablyPrime(unsigned int N) {
 
   //if we're testing a large number switch to Miller-Rabin primality test
   /* Q2.1: Complete this part of the isProbablyPrime function using the Miller-Rabin pseudo-code */
+
   unsigned int r = 0, d = 1;
   unsigned int temp = N-1;
     while (d==1) {
-      if ((temp-1)%2 == 0) r++;
-      else d = (temp-1)%2;
-
+      if ((temp)%2 == 0) r++;
+      else d = temp;
       temp = temp / 2;
     }
 
   for (unsigned int n=0;n<NsmallPrimes;n++) {
-    unsigned int x = modExp(r,d,N);
+    unsigned int x = modExp(smallPrimeList[n],d,N);
     if ((x == 1) || (x == N-1)) continue;
      
     for (int i=1; i<r; i++) {

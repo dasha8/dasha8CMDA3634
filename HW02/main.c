@@ -33,7 +33,7 @@ int main (int argc, char **argv) {
   /* Q2.2: Use isProbablyPrime and randomXbitInt to find a random n-bit prime number */
 
   while (!isProbablyPrime(p)) {
-    p = randXbitInt(n); 
+    p = randXbitInt(n);
   }
 
   printf("p = %u is probably prime.\n", p);
@@ -53,19 +53,20 @@ int main (int argc, char **argv) {
 	printf("g = %u is a generator of Z_%u \n", g, p);  
 
   /* Bonus */
-  unsigned int x = (int)(rand()%p);
-  unsigned int h = (unsigned int)(pow(g,x));
+  unsigned int x = randXbitInt(n)%p;
+  unsigned int h = modExp(g,x,p);
 
   printf("%u is our initial x and %u is h.\n", x, h);
-    
-  for (int pos=1;pos<=p;pos++) {
-    if ((int)pow(g,pos) == h) {
-      x = pos;
+  
+  unsigned int newX = 0;  
+  for (int i=1;i<p;i++) {
+    if (modExp(g,i,p) == h) {
+      newX = i;
       break;
-    }
+      }
   }
 
-  printf("%u is the value of x.\n", x);
+  printf("%u is the value of x.\n", newX);
 
   return 0;
 }
