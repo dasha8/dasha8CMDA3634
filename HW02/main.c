@@ -45,7 +45,7 @@ int main (int argc, char **argv) {
     p = randXbitInt(n);
     q = (p-1)/2;
   }
-	printf("p = %u is probably prime and equals 2*q + 1. q= %u and is also probably prime.\n", p, q);  
+	printf("p = %u is probably prime and equals 2*q + 1. q = %u and is also probably prime.\n", p, q);  
 
 	/* Q3.3: use the fact that p=2*q+1 to quickly find a generator */
 	unsigned int g = findGenerator(p);
@@ -56,17 +56,18 @@ int main (int argc, char **argv) {
   unsigned int x = randXbitInt(n)%p;
   unsigned int h = modExp(g,x,p);
 
-  printf("%u is our initial x and %u is h.\n", x, h);
+  printf("\n***\nBonus question:\n%u is our initial x and %u is h.\n", x, h);
   
-  unsigned int newX = 0;  
-  for (int i=1;i<p;i++) {
-    if (modExp(g,i,p) == h) {
-      newX = i;
-      break;
-      }
+  unsigned int newX = 0;
+  n = 1;  
+  while (newX==0) {
+    if (modExp(g,n,p) == h) {
+      newX = n;
+    }
+    n++;
   }
 
-  printf("%u is the value of x.\n", newX);
+  printf("\n%u is the value of x we found.\n", newX);
 
   return 0;
 }
