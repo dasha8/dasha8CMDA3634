@@ -111,8 +111,8 @@ unsigned int findGenerator(unsigned int p) {
 
   while (isGen == 0 && g < p) {
     isGen = 1;
-    if ((int)pow(g,2)%p == 1) isGen = 0;
-    if ((int)pow(g,q)%p == 1) isGen = 0;
+    if (modExp(g,2,p) == 1) isGen = 0;
+    if (modExp(g,q,p) == 1) isGen = 0;
     g++;
   }
 
