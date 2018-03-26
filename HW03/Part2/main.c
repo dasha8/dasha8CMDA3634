@@ -32,7 +32,7 @@ int main (int argc, char **argv) {
   if (rank == 0) {
     //printf("Enter a number of bits: "); fflush(stdout);
     //char status = scanf("%u",&n);
-    n = 24;
+    n = 30;
     
     //make sure the input makes sense
     if ((n<3)||(n>31)) {//Updated bounds. 2 is no good, 31 is actually ok
