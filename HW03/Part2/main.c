@@ -95,7 +95,7 @@ int main (int argc, char **argv) {
 
   double time2 = MPI_Wtime();
 
-  printf("Finding secret key time for rank %d was %f \n", rank, time2-time1);
+  printf("It took rank %d %f seconds to iterate %d loops with a throughput of %f \n", rank, time2-time1, end-start, ((end-start)/(time2-time1)));
 
   MPI_Finalize();
 
