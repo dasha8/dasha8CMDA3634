@@ -1,0 +1,126 @@
+
+ElGamal Setup successful.
+p = 12890783. 
+g = 6820312 is a generator of Z_12890783 
+Secret key: x = 2869092 
+h = g^x = 4761309
+
+Using 1 processes to find the secret key...
+Secret key found! x = 2869092 
+It took rank 0 112.325024 seconds to iterate 12890782 loops with a throughput of 114763.224848 
+
+ElGamal Setup successful.
+p = 12890783. 
+g = 6820312 is a generator of Z_12890783 
+Secret key: x = 2869092 
+h = g^x = 4761309
+
+Using 2 processes to find the secret key...
+Secret key found! x = 2869092 
+It took rank 0 53.725574 seconds to iterate 6445391 loops with a throughput of 119968.769399 
+It took rank 1 58.606331 seconds to iterate 6445391 loops with a throughput of 109977.726026 
+
+ElGamal Setup successful.
+p = 12890783. 
+g = 6820312 is a generator of Z_12890783 
+Secret key: x = 2869092 
+h = g^x = 4761309
+
+Using 4 processes to find the secret key...
+Secret key found! x = 2869092 
+It took rank 0 25.684573 seconds to iterate 3222695 loops with a throughput of 125472.010305 
+It took rank 1 28.072363 seconds to iterate 3222695 loops with a throughput of 114799.563240 
+It took rank 2 28.915841 seconds to iterate 3222695 loops with a throughput of 111450.847602 
+It took rank 3 29.715616 seconds to iterate 3222694 loops with a throughput of 108451.192845 
+
+ElGamal Setup successful.
+p = 11894999. 
+g = 5581000 is a generator of Z_11894999 
+Secret key: x = 11428111 
+h = g^x = 10694522
+
+Using 8 processes to find the secret key...
+Secret key found! x = 11428111 
+It took rank 0 11.021217 seconds to iterate 1486874 loops with a throughput of 134910.148092 
+It took rank 1 12.015120 seconds to iterate 1486874 loops with a throughput of 123750.241059 
+It took rank 2 12.371542 seconds to iterate 1486874 loops with a throughput of 120185.018389 
+It took rank 3 12.561619 seconds to iterate 1486874 loops with a throughput of 118366.429906 
+It took rank 4 12.759516 seconds to iterate 1486874 loops with a throughput of 116530.595668 
+It took rank 5 12.930696 seconds to iterate 1486874 loops with a throughput of 114987.932497 
+It took rank 6 13.100893 seconds to iterate 1486874 loops with a throughput of 113494.095224 
+It took rank 7 13.185322 seconds to iterate 1486873 loops with a throughput of 112767.287350 
+
+ElGamal Setup successful.
+p = 11894999. 
+g = 5581000 is a generator of Z_11894999 
+Secret key: x = 11428111 
+h = g^x = 10694522
+
+Using 12 processes to find the secret key...
+Secret key found! x = 11428111 
+It took rank 0 7.253435 seconds to iterate 991249 loops with a throughput of 136659.253740 
+It took rank 1 7.838718 seconds to iterate 991249 loops with a throughput of 126455.500492 
+It took rank 2 8.050127 seconds to iterate 991249 loops with a throughput of 123134.578669 
+It took rank 3 8.232199 seconds to iterate 991249 loops with a throughput of 120411.202022 
+It took rank 4 8.286303 seconds to iterate 991249 loops with a throughput of 119625.003253 
+It took rank 5 8.422595 seconds to iterate 991249 loops with a throughput of 117689.262889 
+It took rank 6 8.544463 seconds to iterate 991249 loops with a throughput of 116010.682206 
+It took rank 7 8.579665 seconds to iterate 991249 loops with a throughput of 115534.698183 
+It took rank 8 8.635056 seconds to iterate 991249 loops with a throughput of 114793.580706 
+It took rank 9 8.680572 seconds to iterate 991249 loops with a throughput of 114191.671178 
+It took rank 10 8.776396 seconds to iterate 991249 loops with a throughput of 112944.880326 
+It took rank 11 8.838416 seconds to iterate 991248 loops with a throughput of 112152.224513 
+
+ElGamal Setup successful.
+p = 11894999. 
+g = 5581000 is a generator of Z_11894999 
+Secret key: x = 11428111 
+h = g^x = 10694522
+
+Using 16 processes to find the secret key...
+Secret key found! x = 11428111 
+It took rank 0 5.251624 seconds to iterate 743437 loops with a throughput of 141563.254491 
+It took rank 1 5.774182 seconds to iterate 743437 loops with a throughput of 128751.920227 
+It took rank 2 5.960243 seconds to iterate 743437 loops with a throughput of 124732.666380 
+It took rank 3 6.055407 seconds to iterate 743437 loops with a throughput of 122772.423752 
+It took rank 4 6.159206 seconds to iterate 743437 loops with a throughput of 120703.379893 
+It took rank 5 6.220526 seconds to iterate 743437 loops with a throughput of 119513.527054 
+It took rank 6 6.260361 seconds to iterate 743437 loops with a throughput of 118753.056765 
+It took rank 7 6.304957 seconds to iterate 743437 loops with a throughput of 117913.097624 
+It took rank 8 6.357713 seconds to iterate 743437 loops with a throughput of 116934.659029 
+It took rank 9 6.399008 seconds to iterate 743437 loops with a throughput of 116180.038509 
+It took rank 11 6.465755 seconds to iterate 743437 loops with a throughput of 114980.694696 
+It took rank 10 6.468492 seconds to iterate 743437 loops with a throughput of 114932.042341 
+It took rank 12 6.498578 seconds to iterate 743437 loops with a throughput of 114399.949006 
+It took rank 14 6.549847 seconds to iterate 743437 loops with a throughput of 113504.485335 
+It took rank 13 6.614365 seconds to iterate 743437 loops with a throughput of 112397.337531 
+It took rank 15 6.646349 seconds to iterate 743428 loops with a throughput of 111855.095968 
+
+ElGamal Setup successful.
+p = 12225887. 
+g = 10377520 is a generator of Z_12225887 
+Secret key: x = 894076 
+h = g^x = 2433250
+
+Using 20 processes to find the secret key...
+Secret key found! x = 894076 
+It took rank 0 4.321137 seconds to iterate 611294 loops with a throughput of 141466.001458 
+It took rank 1 4.790288 seconds to iterate 611294 loops with a throughput of 127611.117252 
+It took rank 2 4.983408 seconds to iterate 611294 loops with a throughput of 122665.855005 
+It took rank 3 5.047120 seconds to iterate 611294 loops with a throughput of 121117.387456 
+It took rank 4 5.175440 seconds to iterate 611294 loops with a throughput of 118114.405642 
+It took rank 5 5.225985 seconds to iterate 611294 loops with a throughput of 116972.014678 
+It took rank 7 5.258754 seconds to iterate 611294 loops with a throughput of 116243.124942 
+It took rank 6 5.295036 seconds to iterate 611294 loops with a throughput of 115446.616615 
+It took rank 8 5.371846 seconds to iterate 611294 loops with a throughput of 113795.891483 
+It took rank 10 5.404483 seconds to iterate 611294 loops with a throughput of 113108.689760 
+It took rank 9 5.426600 seconds to iterate 611294 loops with a throughput of 112647.693853 
+It took rank 14 5.475853 seconds to iterate 611294 loops with a throughput of 111634.475422 
+It took rank 12 5.483930 seconds to iterate 611294 loops with a throughput of 111470.056626 
+It took rank 11 5.502212 seconds to iterate 611294 loops with a throughput of 111099.680404 
+It took rank 15 5.535276 seconds to iterate 611294 loops with a throughput of 110436.043428 
+It took rank 13 5.560975 seconds to iterate 611294 loops with a throughput of 109925.690727 
+It took rank 17 5.586712 seconds to iterate 611294 loops with a throughput of 109419.281456 
+It took rank 16 5.651255 seconds to iterate 611294 loops with a throughput of 108169.603326 
+It took rank 18 5.659220 seconds to iterate 611294 loops with a throughput of 108017.359660 
+It took rank 19 5.698584 seconds to iterate 611281 loops with a throughput of 107268.927061 
