@@ -1,0 +1,8 @@
+
+ElGamal Setup successful.
+p = 606821207. 
+g = 560620434 is a generator of Z_606821207 
+Secret key: x = 151197744 
+h = g^x = 511245894
+
+Using 1 processes to find the secret key...
