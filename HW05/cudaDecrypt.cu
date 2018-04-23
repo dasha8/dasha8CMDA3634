@@ -39,18 +39,17 @@ __global__ void findKey(unsigned int p, unsigned int g, unsigned int h, unsigned
   int block = blockIdx.x;
   int Nblock = blockDim.x;
 
-  int id = Nblock*block + thread;
+  unsigned int id = thread + Nblock*block;
 
   if (id < (p-1)) {  
     if (kernelModExp(g, id+1, p) == h) {
-      d_x* = id+1;
+      *d_x = (id+1);
     }
   }
 
 }
 
 
-}
 
 int main (int argc, char **argv) {
 
@@ -90,25 +89,23 @@ int main (int argc, char **argv) {
   }
 
   fclose(f);
-
+  double startTime = clock();
   // find the secret key
   if (x==0 || modExp(g,x,p)!=h) {
     printf("Finding the secret key...\n");
 
-    double startTime = clock();
-
-    unsigned int h_x;
+    unsigned int h_x = 0;
     unsigned int *d_x;
     cudaMalloc(&d_x, sizeof(unsigned int));
     
     int Nthreads = 32;
     int Nblocks = (p - 1)/Nthreads;
 
-    findKey <<<Nblocks, Nthreads>>> (p, g, h);
+    findKey <<<Nblocks, Nthreads>>> (p, g, h, d_x);
 
     cudaDeviceSynchronize();
 
-    cudaMemcpy(h_x, d_x, 4*sizeof(int), cudaMemcpyDeviceToHost);
+    cudaMemcpy(&h_x, d_x, sizeof(unsigned int), cudaMemcpyDeviceToHost);
 
     x = h_x;
 
@@ -123,5 +120,17 @@ int main (int argc, char **argv) {
 
   printf("The key found is %u\n", x);
   printf("Searching all keys took %g seconds, throughput was %g values tested per second.\n", totalTime, throughput);
+
+  int Nchars = ((n-1)/8)*Nints;
+  unsigned char *message = (unsigned char *) malloc((Nchars+1)*sizeof(unsigned char));
+
+
+  ElGamalDecrypt(Zmessage, a, Nints, p, x);
+  
+  convertZToString(Zmessage, Nints, message, Nchars);
+
+  printf("Decrypted message = \"%s\"\n", message);
+
+ 
   return 0;
 }
