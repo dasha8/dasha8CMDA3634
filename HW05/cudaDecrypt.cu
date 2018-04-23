@@ -33,22 +33,17 @@ __device__ unsigned int kernelModExp(unsigned int a, unsigned int b, unsigned in
   return aExpb;
 }
 
-__global__ void findKey(*d_values) {
+__global__ void findKey(unsigned int p, unsigned int g, unsigned int h, unsigned int* d_x) {
 
   int thread = threadIdx.x;
   int block = blockIdx.x;
   int Nblock = blockDim.x;
 
-  int id = thread + block*Nblock;
+  int id = Nblock*block + thread;
 
-  unsigned int p = d_value[0];
-  unsigned int g = d_value[1];
-  unsigned int h = d_value[2];
-
-  for (unsigned int i=id; i<id+Nblock; i++) { //HOW MANY ITER
-    if (kernelModExp(g, i+1, p) == h) {
-      x = i+1;
-      d_values[3] = x;
+  if (id < (p-1)) {  
+    if (kernelModExp(g, id+1, p) == h) {
+      d_x* = id+1;
     }
   }
 
@@ -97,37 +92,27 @@ int main (int argc, char **argv) {
   fclose(f);
 
   // find the secret key
-
-
   if (x==0 || modExp(g,x,p)!=h) {
     printf("Finding the secret key...\n");
 
     double startTime = clock();
 
-    int *h_values = malloc(4*sizeof(int));
-    h_value[0] = p;
-    h_value[1] = g;
-    h_value[2] = h;
-    h_value[3] = 0; //space for x once found
-    int *d_values;
-    cudaMalloc(&d_values, 4*sizeof(int));
+    unsigned int h_x;
+    unsigned int *d_x;
+    cudaMalloc(&d_x, sizeof(unsigned int));
     
-    cudaMemcpy(d_values,h_values,4*sizeof(int),cudaMemcpyHostToDevice);
-
     int Nthreads = 32;
-    int Nblocks = (Nthreads + p - 1)/Nthreads;
+    int Nblocks = (p - 1)/Nthreads;
 
-    kernelSecretKey<<<Nblocks, Nthreads>>>(d_values);
+    findKey <<<Nblocks, Nthreads>>> (p, g, h);
 
     cudaDeviceSynchronize();
 
-    cudaMemcpy(h_values, d_values, 4*sizeof(int), cudaMemcpyDeviceToHost);
+    cudaMemcpy(h_x, d_x, 4*sizeof(int), cudaMemcpyDeviceToHost);
 
-    x = d_values[3];
+    x = h_x;
 
-    cudaFree(d_values);
-    free(h_values);
-
+    cudaFree(d_x);
   }
 
   double endTime = clock();
@@ -136,6 +121,7 @@ int main (int argc, char **argv) {
   double work = (double) p;
   double throughput = work/totalTime;
 
+  printf("The key found is %u\n", x);
   printf("Searching all keys took %g seconds, throughput was %g values tested per second.\n", totalTime, throughput);
   return 0;
 }
